@@ -7,8 +7,11 @@ import android.view.View
 import androidx.navigation.fragment.findNavController
 import br.com.faustfelipe.android.companiesys.R
 import br.com.faustfelipe.android.companiesys.common.BaseFragment
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SplashFragment : BaseFragment(R.layout.fragment_splash) {
+
+  private val viewModel: SplashViewModel by viewModel()
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
@@ -24,11 +27,17 @@ class SplashFragment : BaseFragment(R.layout.fragment_splash) {
 
   override fun setupActions() {
     Handler(Looper.getMainLooper()).postDelayed({
-      navigate(R.id.action_splashFragment_to_signInFragment)
+      viewModel.signIntoApp()
     }, DELAY_OPEN_LOGIN)
   }
 
   override fun setupObservables() {
+    viewModel.apply {
+      signIntoApp.observe(viewLifecycleOwner, {
+        if (it) navigate(R.id.action_splashFragment_to_homeFragment)
+        else navigate(R.id.action_splashFragment_to_signInFragment)
+      })
+    }
   }
 
   companion object {

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <color name="black">#FF000000</color>
+  <color name="black_rock">#0D0430</color>
   <color name="cardinal">#B1163F</color>
   <color name="fountain_blue">#57BBBC</color>
   <color name="french_rose">#EE4C77</color>

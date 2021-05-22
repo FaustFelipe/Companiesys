@@ -32,6 +32,12 @@ class ComaniesysRepositoryImpl(
     )
   }
 
+  override fun signIntoApp(): Boolean {
+    return sharedPreferences.getString(ENCRYPTED_PREFS_ACCESS_TOKEN_KEY, null) != null &&
+      sharedPreferences.getString(ENCRYPTED_PREFS_CLIENT_KEY, null) != null &&
+      sharedPreferences.getString(ENCRYPTED_PREFS_UID_KEY, null) != null
+  }
+
   override suspend fun postSignIn(email: String, password: String): Result<Unit> {
     return safeIOCall {
       val userPayload = UserPayload(email, password)
@@ -41,13 +47,11 @@ class ComaniesysRepositoryImpl(
     }
   }
 
-  private fun saveCustomHeaders(headers: Headers) {
-    with(sharedPreferences.edit()) {
-      putString(ENCRYPTED_PREFS_ACCESS_TOKEN_KEY, headers[CustomHeaders.ACCESS_TOKEN.key])
-      putString(ENCRYPTED_PREFS_CLIENT_KEY, headers[CustomHeaders.CLIENT.key])
-      putString(ENCRYPTED_PREFS_UID_KEY, headers[CustomHeaders.UID.key])
-      apply()
-    }
+  private fun saveCustomHeaders(headers: Headers) = with(sharedPreferences.edit()) {
+    putString(ENCRYPTED_PREFS_ACCESS_TOKEN_KEY, headers[CustomHeaders.ACCESS_TOKEN.key])
+    putString(ENCRYPTED_PREFS_CLIENT_KEY, headers[CustomHeaders.CLIENT.key])
+    putString(ENCRYPTED_PREFS_UID_KEY, headers[CustomHeaders.UID.key])
+    apply()
   }
 
 }
