@@ -1,16 +1,17 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
   <!-- Base application theme. -->
-  <style name="Theme.Companiesys" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+  <style name="Theme.Companiesys" parent="Theme.MaterialComponents.DayNight.NoActionBar">
     <!-- Primary brand color. -->
-    <item name="colorPrimary">@color/purple_500</item>
-    <item name="colorPrimaryVariant">@color/purple_700</item>
-    <item name="colorOnPrimary">@color/white</item>
+    <item name="colorPrimary">@color/french_rose</item>
+    <item name="colorPrimaryVariant">@color/cardinal</item>
+    <item name="colorOnPrimary">@color/white_rock</item>
     <!-- Secondary brand color. -->
-    <item name="colorSecondary">@color/teal_200</item>
-    <item name="colorSecondaryVariant">@color/teal_700</item>
+    <item name="colorSecondary">@color/fountain_blue</item>
+    <item name="colorSecondaryVariant">@color/hippie_blue</item>
     <item name="colorOnSecondary">@color/black</item>
     <!-- Status bar color. -->
     <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-    <!-- Customize your theme here. -->
+    <!-- Screen background color -->
+    <item name="android:colorBackground">@color/white_rock</item>
   </style>
 </resources>
