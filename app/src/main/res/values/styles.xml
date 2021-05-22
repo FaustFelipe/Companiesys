@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <!-- Button styles -->
+  <style name="Button.FountainBlue" parent="Widget.MaterialComponents.Button">
+    <item name="android:backgroundTint">@color/state_checked_button_fountain_blue</item>
+    <item name="android:textColor">@color/white</item>
+    <item name="android:textAppearance">@style/Text.Roboto.Medium.16sp</item>
+    <item name="android:insetTop">0dp</item>
+    <item name="android:insetBottom">0dp</item>
+    <item name="textAllCaps">true</item>
+  </style>
+
+</resources>

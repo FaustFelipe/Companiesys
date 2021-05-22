@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation
+  xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
-  android:id="@+id/app_nav_graph">
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/app_nav_graph"
+  app:startDestination="@id/splashFragment">
+
+  <fragment
+    android:id="@+id/splashFragment"
+    android:name="br.com.faustfelipe.android.companiesys.presentation.splash.SplashFragment"
+    android:label="SplashFragment"
+    tools:layout="@layout/fragment_splash" >
+
+    <action
+      android:id="@+id/action_splashFragment_to_signInFragment"
+      app:destination="@id/signInFragment" />
+
+  </fragment>
+
+  <fragment
+    android:id="@+id/signInFragment"
+    android:name="br.com.faustfelipe.android.companiesys.presentation.signin.SignInFragment"
+    android:label="SignInFragment"
+    tools:layout="@layout/fragment_sign_in" />
 
 </navigation>

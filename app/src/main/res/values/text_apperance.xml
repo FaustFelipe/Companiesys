@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <style name="Text" />
+
+  <!-- region Roboto Typography -->
+  <style name="Text.Roboto">
+    <item name="android:fontFamily">@font/roboto</item>
+  </style>
+
+  <style name="Text.Roboto.Medium">
+    <item name="android:fontFamily">@font/roboto_medium</item>
+  </style>
+
+  <style name="Text.Roboto.Bold">
+    <item name="android:fontFamily">@font/roboto_bold</item>
+  </style>
+  <!-- endregion Roboto Typography -->
+
+  <!-- Regular -->
+  <style name="Text.Roboto.16sp">
+    <item name="android:textSize">@dimen/textSize16</item>
+  </style>
+
+  <!-- Medium -->
+  <style name="Text.Roboto.Medium.16sp">
+    <item name="android:textSize">@dimen/textSize16</item>
+  </style>
+
+  <!-- Bold -->
+  <style name="Text.Roboto.Bold.20sp">
+    <item name="android:textSize">@dimen/textSize20</item>
+  </style>
+
+</resources>

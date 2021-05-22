@@ -1,3 +1,11 @@
 <resources>
   <string name="app_name">Companiesys</string>
+
+  <!-- Sign In Screen -->
+  <string name="sign_in_welcome">Bem-vindo ao empresas</string>
+  <string name="sign_in_lorem">Lorem ipsum dolor sit amet, contetur adipiscing elit. Nunc accumsan.</string>
+  <string name="sign_in_email">E-mail</string>
+  <string name="sign_in_password">Senha</string>
+  <string name="sign_in_login">Entrar</string>
+
 </resources>
