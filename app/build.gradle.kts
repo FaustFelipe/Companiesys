@@ -25,7 +25,7 @@ android {
       proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
     }
     getByName("debug") {
-      isMinifyEnabled = false
+
     }
   }
 
@@ -40,6 +40,8 @@ android {
 }
 
 dependencies {
+  api(project(":domain"))
+  api(project(":data"))
   implementation(AppDependencies.Kotlin.kotlinLibraries)
   implementation(AppDependencies.AndroidX.appLibraries)
   implementation(AppDependencies.Material.material)

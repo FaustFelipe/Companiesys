@@ -18,6 +18,10 @@
   <!-- endregion Roboto Typography -->
 
   <!-- Regular -->
+  <style name="Text.Roboto.12sp">
+    <item name="android:textSize">@dimen/textSize12</item>
+  </style>
+
   <style name="Text.Roboto.16sp">
     <item name="android:textSize">@dimen/textSize16</item>
   </style>

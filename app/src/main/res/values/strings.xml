@@ -7,5 +7,8 @@
   <string name="sign_in_email">E-mail</string>
   <string name="sign_in_password">Senha</string>
   <string name="sign_in_login">Entrar</string>
+  <string name="sign_in_invalid_email">E-mail inválido</string>
+  <string name="sign_in_invalid_password">Senha inválida</string>
+  <string name="sign_in_invalid_credentials">Credenciais informadas são inválidas, tente novamente.</string>
 
 </resources>

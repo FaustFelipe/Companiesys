@@ -38,6 +38,12 @@ class CustomTextInputField @JvmOverloads constructor(
     }
   }
 
+  fun getData(): String = field.text?.toString() ?: ""
+
+  fun showError(value: String?) {
+    field.error = value
+  }
+
   inline fun onFieldTextChangeListener(crossinline listener: (String) -> Unit) {
     field.onTextChanged {
       listener.invoke(it)
