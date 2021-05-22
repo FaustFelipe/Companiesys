@@ -1,6 +1,12 @@
 <resources>
   <string name="app_name">Companiesys</string>
 
+  <!-- actions -->
+  <string name="action_search">Pesquisar</string>
+
+  <!-- hint -->
+  <string name="hint_search">Pesquisar</string>
+
   <!-- Sign In Screen -->
   <string name="sign_in_welcome">Bem-vindo ao empresas</string>
   <string name="sign_in_lorem">Lorem ipsum dolor sit amet, contetur adipiscing elit. Nunc accumsan.</string>
@@ -10,5 +16,8 @@
   <string name="sign_in_invalid_email">E-mail inválido</string>
   <string name="sign_in_invalid_password">Senha inválida</string>
   <string name="sign_in_invalid_credentials">Credenciais informadas são inválidas, tente novamente.</string>
+
+  <!-- Home Screen -->
+  <string name="home_click_start">Clique na busca para iniciar.</string>
 
 </resources>

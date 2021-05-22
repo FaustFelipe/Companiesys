@@ -6,6 +6,7 @@
   android:layout_height="match_parent">
 
   <androidx.appcompat.widget.Toolbar
+    android:id="@+id/toolbar"
     android:layout_width="@dimen/dimen0"
     android:layout_height="wrap_content"
     android:minHeight="?attr/actionBarSize"
@@ -21,5 +22,17 @@
       android:layout_gravity="center" />
 
   </androidx.appcompat.widget.Toolbar>
+
+  <androidx.appcompat.widget.AppCompatTextView
+    android:id="@+id/txt_info_start_searching"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textAppearance="@style/Text.Roboto.16sp"
+    android:text="@string/home_click_start"
+    android:textColor="@color/tuna"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/toolbar"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

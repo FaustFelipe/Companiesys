@@ -2,6 +2,8 @@ package br.com.faustfelipe.android.companiesys.common
 
 import androidx.annotation.IdRes
 import androidx.annotation.LayoutRes
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.NavOptions
@@ -9,6 +11,7 @@ import br.com.faustfelipe.android.companiesys.R
 
 abstract class BaseFragment(@LayoutRes res: Int): Fragment(res) {
 
+  protected var toolbarView: Toolbar? = null
   protected var navControler: NavController? = null
 
   abstract fun setupView()
@@ -22,6 +25,32 @@ abstract class BaseFragment(@LayoutRes res: Int): Fragment(res) {
         null,
         getDefaultNavOptions(res).build()
       )
+    }
+  }
+
+  protected open fun setupToolbar() {
+    toolbarView?.apply {
+      (activity as? AppCompatActivity)?.let {
+        it.setSupportActionBar(this)
+        it.title = ""
+      }
+    }
+  }
+
+  protected open fun setupToolbarWithBackOption() {
+    toolbarView?.apply {
+      (activity as? AppCompatActivity)?.let {
+        it.setSupportActionBar(this)
+        it.title = ""
+        it.supportActionBar?.let { supportActionBar ->
+          supportActionBar.setDisplayShowHomeEnabled(true)
+          supportActionBar.setDisplayHomeAsUpEnabled(true)
+          supportActionBar.setHomeAsUpIndicator(R.drawable.ic_arrow_back_white)
+        }
+      }
+      setNavigationOnClickListener {
+        requireActivity().onBackPressed()
+      }
     }
   }
 
