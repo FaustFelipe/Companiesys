@@ -46,6 +46,10 @@ object Versions {
     }
   }
 
+  object SecurityCrypto {
+    const val crypto = "1.0.0"
+  }
+
   object Test {
     const val jUnit = "4.12"
     const val extJunit = "1.1.2"

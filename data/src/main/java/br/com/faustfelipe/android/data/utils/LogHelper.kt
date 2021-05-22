@@ -1,32 +1,32 @@
 package br.com.faustfelipe.android.data.utils
 
 import android.util.Log
-import org.koin.android.BuildConfig
+import br.com.faustfelipe.android.data.BuildConfig
 
 object LogHelper {
-  fun error(message: String) {
+  fun e(tag: String = TAG, message: String) {
     if (BuildConfig.DEBUG) {
-      Log.e(TAG, message)
+      Log.e(tag, message)
     }
   }
-  fun warning(message: String) {
+  fun w(tag: String = TAG, message: String) {
     if (BuildConfig.DEBUG) {
-      Log.w(TAG, message)
+      Log.w(tag, message)
     }
   }
-  fun information(message: String) {
+  fun i(tag: String = TAG, message: String) {
     if (BuildConfig.DEBUG) {
-      Log.i(TAG, message)
+      Log.i(tag, message)
     }
   }
-  fun debug(message: String) {
+  fun d(tag: String = TAG, message: String) {
     if (BuildConfig.DEBUG) {
-      Log.d(TAG, message)
+      Log.d(tag, message)
     }
   }
-  fun verbose(message: String) {
+  fun v(tag: String = TAG, message: String) {
     if (BuildConfig.DEBUG) {
-      Log.v(TAG, message)
+      Log.v(tag, message)
     }
   }
   private const val TAG = "LogHelper"

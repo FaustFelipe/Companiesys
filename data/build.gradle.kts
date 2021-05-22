@@ -46,6 +46,7 @@ dependencies {
   implementation(AppDependencies.SquareUp.Retrofit2.retrofitLibraries)
   implementation(AppDependencies.SquareUp.Gson.gsonLibraries)
   implementation(AppDependencies.SquareUp.Okhttp3.okhttpLibraries)
+  implementation(AppDependencies.SecurityCrypto.cryptoLibraries)
   testImplementation(AppDependencies.TestLibs.testLibraries)
   androidTestImplementation(AppDependencies.TestLibs.androidTestLibraries)
 }

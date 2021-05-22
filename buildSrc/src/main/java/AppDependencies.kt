@@ -106,6 +106,14 @@ object AppDependencies {
     }
   }
 
+  object SecurityCrypto {
+    private val crypto = "androidx.security:security-crypto:${Versions.SecurityCrypto.crypto}"
+
+    val cryptoLibraries = arrayListOf<String>().apply {
+      add(crypto)
+    }
+  }
+
   object TestLibs {
     private val jUnit = "junit:junit:${Versions.Test.jUnit}"
     private val extJunit = "androidx.test.ext:junit:${Versions.Test.extJunit}"
