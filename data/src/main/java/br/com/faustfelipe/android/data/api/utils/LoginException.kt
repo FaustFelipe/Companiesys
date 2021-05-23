@@ -2,11 +2,13 @@ package br.com.faustfelipe.android.data.api.utils
 
 import br.com.faustfelipe.android.domain.utils.AppException
 
-class ApiException: AppException() {
+class LoginException(
+  private val errors: List<String>
+): AppException() {
   override fun relogin(): Boolean {
-    return false
+    return true
   }
   override fun message(): String {
-    return "Error connecting to API"
+    return errors.firstOrNull() ?: ""
   }
 }

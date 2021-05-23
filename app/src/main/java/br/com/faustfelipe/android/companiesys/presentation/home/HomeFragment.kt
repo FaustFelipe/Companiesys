@@ -5,12 +5,14 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.navigation.fragment.findNavController
 import br.com.faustfelipe.android.companiesys.R
 import br.com.faustfelipe.android.companiesys.common.BaseFragment
 import br.com.faustfelipe.android.data.utils.LogHelper
 import kotlinx.android.synthetic.main.fragment_home.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : BaseFragment(R.layout.fragment_home), SearchView.OnQueryTextListener,
   MenuItem.OnActionExpandListener {
@@ -18,6 +20,8 @@ class HomeFragment : BaseFragment(R.layout.fragment_home), SearchView.OnQueryTex
   private val TAG by lazy {
     this.javaClass.simpleName
   }
+  private val viewModel: HomeViewModel by viewModel()
+
   private var searchView: SearchView? = null
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -54,6 +58,17 @@ class HomeFragment : BaseFragment(R.layout.fragment_home), SearchView.OnQueryTex
   }
 
   override fun setupObservables() {
+    viewModel.apply {
+      errorMessage.observe(viewLifecycleOwner, {
+        Toast.makeText(requireActivity(), it, Toast.LENGTH_LONG).show()
+      })
+      relogin.observe(viewLifecycleOwner, {
+        if (it) navigate(R.id.action_homeFragment_to_signInFragment)
+      })
+      enterpriseData.observe(viewLifecycleOwner, {
+
+      })
+    }
   }
 
   override fun onQueryTextSubmit(query: String?): Boolean {
@@ -63,6 +78,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home), SearchView.OnQueryTex
 
   override fun onQueryTextChange(newText: String?): Boolean {
     LogHelper.d(TAG, newText ?: "")
+    viewModel.searchEnterprise(newText ?: "")
     return true
   }
 

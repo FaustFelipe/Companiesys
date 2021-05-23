@@ -2,5 +2,5 @@ package br.com.faustfelipe.android.domain.utils
 
 sealed class Result<out T> {
   data class Success<out T>(val data: T): Result<T>()
-  data class Error(val error: List<String>): Result<Nothing>()
+  data class Error(val error: String, val relogin: Boolean): Result<Nothing>()
 }

@@ -3,10 +3,13 @@ package br.com.faustfelipe.android.data.api.datasource
 import br.com.faustfelipe.android.data.api.CompaniesysAPI
 import br.com.faustfelipe.android.data.api.models.response.SignInResponse
 import br.com.faustfelipe.android.data.api.models.UserPayload
+import br.com.faustfelipe.android.data.api.models.response.EnterprisesSearchResponse
 import br.com.faustfelipe.android.data.api.models.response.ResponseWithHeaders
 import br.com.faustfelipe.android.data.api.utils.ApiException
+import br.com.faustfelipe.android.data.api.utils.callService
 import br.com.faustfelipe.android.data.utils.LogHelper
 import okhttp3.Headers
+import retrofit2.Response
 
 class RemoteDataSourceImpl(
   private val serverApi: CompaniesysAPI
@@ -18,6 +21,23 @@ class RemoteDataSourceImpl(
     } else {
       LogHelper.e(tag = this.javaClass.simpleName, message = "Api Exception")
       throw ApiException()
+    }
+  }
+
+  override suspend fun getSearchEnterprise(
+    accesstoken: String,
+    client: String,
+    uid: String,
+    queryName: String
+  ): EnterprisesSearchResponse {
+    return callService {
+      serverApi.getSearchEnterprises(
+        contentType = "application/json",
+        accessToken = accesstoken,
+        client = client,
+        uid = uid,
+        queryName = queryName
+      )
     }
   }
 }

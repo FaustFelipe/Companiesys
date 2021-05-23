@@ -4,8 +4,10 @@ import android.content.Context
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKeys
 import br.com.faustfelipe.android.data.api.datasource.RemoteDataSource
+import br.com.faustfelipe.android.data.api.mappers.EnterpriseMapper
 import br.com.faustfelipe.android.data.api.models.CustomHeaders
 import br.com.faustfelipe.android.data.api.models.UserPayload
+import br.com.faustfelipe.android.domain.models.Enterprise
 import br.com.faustfelipe.android.domain.repository.CompaniesysRepository
 import br.com.faustfelipe.android.domain.utils.Result
 import br.com.faustfelipe.android.domain.utils.Result.Success
@@ -20,8 +22,11 @@ private const val ENCRYPTED_PREFS_UID_KEY = "key_prefs_uid"
 class ComaniesysRepositoryImpl(
   private val context: Context,
   private val dataSource: RemoteDataSource
-): CompaniesysRepository {
+) : CompaniesysRepository {
 
+  private val TAG by lazy {
+    this.javaClass.simpleName
+  }
   private val sharedPreferences by lazy {
     EncryptedSharedPreferences.create(
       ENCRYPTED_PREFS_FILE_NAME,
@@ -33,9 +38,12 @@ class ComaniesysRepositoryImpl(
   }
 
   override fun signIntoApp(): Boolean {
-    return sharedPreferences.getString(ENCRYPTED_PREFS_ACCESS_TOKEN_KEY, null) != null &&
-      sharedPreferences.getString(ENCRYPTED_PREFS_CLIENT_KEY, null) != null &&
-      sharedPreferences.getString(ENCRYPTED_PREFS_UID_KEY, null) != null
+    val accessToken = getHeader(ENCRYPTED_PREFS_ACCESS_TOKEN_KEY)
+    val client = getHeader(ENCRYPTED_PREFS_CLIENT_KEY)
+    val uid = getHeader(ENCRYPTED_PREFS_UID_KEY)
+    return accessToken.isNotEmpty() &&
+      client.isNotEmpty() &&
+      uid.isNotEmpty()
   }
 
   override suspend fun postSignIn(email: String, password: String): Result<Unit> {
@@ -47,6 +55,22 @@ class ComaniesysRepositoryImpl(
     }
   }
 
+  override suspend fun searchEnterprise(queryName: String): Result<List<Enterprise>> {
+    return safeIOCall {
+      val result = dataSource.getSearchEnterprise(
+        accesstoken = getHeader(ENCRYPTED_PREFS_ACCESS_TOKEN_KEY),
+        client = getHeader(ENCRYPTED_PREFS_CLIENT_KEY),
+        uid = getHeader(ENCRYPTED_PREFS_UID_KEY),
+        queryName = queryName
+      )
+      Success(EnterpriseMapper.map(result))
+    }
+  }
+
+  override fun clearLocalData() {
+    sharedPreferences.edit().clear().apply()
+  }
+
   private fun saveCustomHeaders(headers: Headers) = with(sharedPreferences.edit()) {
     putString(ENCRYPTED_PREFS_ACCESS_TOKEN_KEY, headers[CustomHeaders.ACCESS_TOKEN.key])
     putString(ENCRYPTED_PREFS_CLIENT_KEY, headers[CustomHeaders.CLIENT.key])
@@ -54,4 +78,7 @@ class ComaniesysRepositoryImpl(
     apply()
   }
 
+  private fun getHeader(key: String): String {
+    return sharedPreferences.getString(key, null) ?: ""
+  }
 }

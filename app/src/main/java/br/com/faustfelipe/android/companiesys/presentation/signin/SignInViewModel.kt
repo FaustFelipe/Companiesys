@@ -39,7 +39,7 @@ class SignInViewModel(
       _emailError.postValue(true)
     } else {
       viewModelScope.launch(Dispatchers.IO) {
-        loading.postValue(true)
+        _loading.postValue(true)
         when(val response = signInUseCase.signIn(email, password)) {
           is Result.Success -> _navigateToFeed.postValue(Unit)
           is Result.Error -> {
@@ -48,7 +48,7 @@ class SignInViewModel(
             _invalidCredentials.postValue(true)
           }
         }
-        loading.postValue(false)
+        _loading.postValue(false)
       }
     }
   }

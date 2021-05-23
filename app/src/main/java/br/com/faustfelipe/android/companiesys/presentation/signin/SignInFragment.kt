@@ -76,6 +76,7 @@ class SignInFragment : BaseFragment(R.layout.fragment_sign_in) {
     viewModel.apply {
       loading.observe(viewLifecycleOwner, {
         loadingView.setVisibilityGoneForBoolean(it)
+        btnSignIn.isEnabled = !it
       })
 
       emailError.observe(viewLifecycleOwner, {

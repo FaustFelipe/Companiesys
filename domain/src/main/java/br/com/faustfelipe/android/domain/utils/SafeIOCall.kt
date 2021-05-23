@@ -17,8 +17,8 @@ suspend fun <T : Any> safeCall(
   try {
     call()
   } catch (e: AppException) {
-    Error(emptyList())
+    Error(e.message(), e.relogin())
   } catch (e: Exception) {
-    Error(emptyList())
+    Error(e.localizedMessage, false)
   }
 }

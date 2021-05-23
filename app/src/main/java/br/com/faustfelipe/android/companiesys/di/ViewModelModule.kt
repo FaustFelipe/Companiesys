@@ -1,5 +1,6 @@
 package br.com.faustfelipe.android.companiesys.di
 
+import br.com.faustfelipe.android.companiesys.presentation.home.HomeViewModel
 import br.com.faustfelipe.android.companiesys.presentation.signin.SignInViewModel
 import br.com.faustfelipe.android.companiesys.presentation.splash.SplashViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -15,6 +16,12 @@ val viewModelModule = module {
   viewModel<SignInViewModel> {
     SignInViewModel(
       signInUseCase = get()
+    )
+  }
+
+  viewModel<HomeViewModel> {
+    HomeViewModel(
+      homeUseCase = get()
     )
   }
 }
