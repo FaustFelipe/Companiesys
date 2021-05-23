@@ -1,6 +1,9 @@
 package br.com.faustfelipe.android.companiesys.presentation.extensions
 
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
+import androidx.annotation.LayoutRes
 
 fun View.makeInvisible() {
   this.visibility = View.INVISIBLE
@@ -20,4 +23,8 @@ fun View.setVisibilityGoneForBoolean(visible: Boolean) {
 
 fun View.setVisibilityInvisibleForBoolean(visible: Boolean) {
   if (visible) makeVisible() else makeInvisible()
+}
+
+fun ViewGroup.inflate(@LayoutRes view: Int): View {
+  return LayoutInflater.from(this.context).inflate(view, this, false)
 }

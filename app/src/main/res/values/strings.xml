@@ -19,5 +19,6 @@
 
   <!-- Home Screen -->
   <string name="home_click_start">Clique na busca para iniciar.</string>
+  <string name="home_no_results_search">Nenhuma empresa foi encontrada para a busca realizada.</string>
 
 </resources>

@@ -6,6 +6,10 @@ data class EnterprisesSearchResponse(
   @SerializedName("enterprises") val enterprisesList: List<Enterprises>
 )
 
+data class EnterpriseSearchResponse(
+  @SerializedName("enterprise") val enterprise: Enterprises
+)
+
 data class Enterprises(
   @SerializedName("id") val id: Long?,
   @SerializedName("email_enterprise") val emailEnterprise: String?,

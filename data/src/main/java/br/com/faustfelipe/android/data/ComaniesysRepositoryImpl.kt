@@ -67,6 +67,18 @@ class ComaniesysRepositoryImpl(
     }
   }
 
+  override suspend fun showEnterprise(id: String): Result<Enterprise> {
+    return safeIOCall {
+      val result = dataSource.getEnterprise(
+        accesstoken = getHeader(ENCRYPTED_PREFS_ACCESS_TOKEN_KEY),
+        client = getHeader(ENCRYPTED_PREFS_CLIENT_KEY),
+        uid = getHeader(ENCRYPTED_PREFS_UID_KEY),
+        id = id
+      )
+      Success(EnterpriseMapper.map(result))
+    }
+  }
+
   override fun clearLocalData() {
     sharedPreferences.edit().clear().apply()
   }

@@ -5,12 +5,15 @@
   <color name="cardinal">#B1163F</color>
   <color name="fountain_blue">#57BBBC</color>
   <color name="french_rose">#EE4C77</color>
+  <color name="gray">#8D8C8C</color>
   <color name="hibiscus">#C9406B</color>
   <color name="hippie_blue">#49A6A7</color>
   <color name="mandy">#E34873</color>
   <color name="sirocco">#748383</color>
+  <color name="silver_chalice">#ACABAB</color>
   <color name="torch_red">#FF0F44</color>
   <color name="tuna">#383743</color>
+  <color name="violet">#1A0E49</color>
   <color name="white">#FFFFFFFF</color>
   <color name="white_60">#99FFFFFF</color>
   <color name="white_rock">#EBE9D7</color>

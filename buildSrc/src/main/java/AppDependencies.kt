@@ -114,6 +114,18 @@ object AppDependencies {
     }
   }
 
+  object Bumptech {
+    private val glideImpl = "com.github.bumptech.glide:glide:${Versions.Bumptech.glide}"
+    private val glideComp = "com.github.bumptech.glide:compiler:${Versions.Bumptech.glide}"
+
+    val glideImplLibraries = arrayListOf<String>().apply {
+      add(glideImpl)
+    }
+    val glideCompLibraries = arrayListOf<String>().apply {
+      add(glideComp)
+    }
+  }
+
   object TestLibs {
     private val jUnit = "junit:junit:${Versions.Test.jUnit}"
     private val extJunit = "androidx.test.ext:junit:${Versions.Test.extJunit}"

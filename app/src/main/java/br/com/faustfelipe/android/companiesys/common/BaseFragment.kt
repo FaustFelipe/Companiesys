@@ -1,5 +1,6 @@
 package br.com.faustfelipe.android.companiesys.common
 
+import android.os.Bundle
 import androidx.annotation.IdRes
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
@@ -28,6 +29,16 @@ abstract class BaseFragment(@LayoutRes res: Int): Fragment(res) {
     }
   }
 
+  protected fun navigate(@IdRes res: Int, bundle: Bundle) {
+    navControler?.apply {
+      navigate(
+        res,
+        bundle,
+        getDefaultNavOptions(res).build()
+      )
+    }
+  }
+
   protected open fun setupToolbar() {
     toolbarView?.apply {
       (activity as? AppCompatActivity)?.let {
@@ -37,11 +48,11 @@ abstract class BaseFragment(@LayoutRes res: Int): Fragment(res) {
     }
   }
 
-  protected open fun setupToolbarWithBackOption() {
+  protected open fun setupToolbarWithBackOption(title: String = "") {
     toolbarView?.apply {
       (activity as? AppCompatActivity)?.let {
         it.setSupportActionBar(this)
-        it.title = ""
+        it.title = title
         it.supportActionBar?.let { supportActionBar ->
           supportActionBar.setDisplayShowHomeEnabled(true)
           supportActionBar.setDisplayHomeAsUpEnabled(true)

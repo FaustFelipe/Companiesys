@@ -49,6 +49,8 @@ dependencies {
   implementation(AppDependencies.AndroidX.Navigation.navigationLibraries)
   implementation(AppDependencies.Koin.koinLibraries)
   implementation(AppDependencies.Koin.viewModelKoinLibraries)
+  implementation(AppDependencies.Bumptech.glideImplLibraries)
+  kapt(AppDependencies.Bumptech.glideCompLibraries)
   testImplementation(AppDependencies.TestLibs.testLibraries)
   androidTestImplementation(AppDependencies.TestLibs.androidTestLibraries)
 }

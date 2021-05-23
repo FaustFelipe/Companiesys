@@ -7,5 +7,6 @@ interface CompaniesysRepository {
   fun signIntoApp(): Boolean
   suspend fun postSignIn(email: String, password: String): Result<Unit>
   suspend fun searchEnterprise(queryName: String): Result<List<Enterprise>>
+  suspend fun showEnterprise(id: String): Result<Enterprise>
   fun clearLocalData()
 }

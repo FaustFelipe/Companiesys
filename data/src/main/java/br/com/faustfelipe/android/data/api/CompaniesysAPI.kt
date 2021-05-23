@@ -1,6 +1,7 @@
 package br.com.faustfelipe.android.data.api
 
 import br.com.faustfelipe.android.data.api.models.UserPayload
+import br.com.faustfelipe.android.data.api.models.response.EnterpriseSearchResponse
 import br.com.faustfelipe.android.data.api.models.response.EnterprisesSearchResponse
 import br.com.faustfelipe.android.data.api.models.response.SignInResponse
 import retrofit2.Response
@@ -8,6 +9,7 @@ import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.POST
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface CompaniesysAPI {
@@ -22,6 +24,15 @@ interface CompaniesysAPI {
     @Header("uid") uid: String,
     @Query("name") queryName: String
   ): Response<EnterprisesSearchResponse>
+
+  @GET("$PREFIX_API/enterprises/{id}")
+  suspend fun getShowEnterprise(
+    @Header("Content-Type") contentType: String,
+    @Header("access-token") accessToken: String,
+    @Header("client") client: String,
+    @Header("uid") uid: String,
+    @Path("id") id: String
+  ): Response<EnterpriseSearchResponse>
 
   companion object {
     private const val PREFIX_API = "/api/v1"

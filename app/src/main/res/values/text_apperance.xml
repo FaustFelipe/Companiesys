@@ -15,6 +15,10 @@
   <style name="Text.Roboto.Bold">
     <item name="android:fontFamily">@font/roboto_bold</item>
   </style>
+
+  <style name="Text.Roboto.Italic">
+    <item name="android:fontFamily">@font/roboto_italic</item>
+  </style>
   <!-- endregion Roboto Typography -->
 
   <!-- Regular -->
@@ -26,14 +30,27 @@
     <item name="android:textSize">@dimen/textSize16</item>
   </style>
 
+  <style name="Text.Roboto.18sp">
+    <item name="android:textSize">@dimen/textSize18</item>
+  </style>
+
   <!-- Medium -->
   <style name="Text.Roboto.Medium.16sp">
     <item name="android:textSize">@dimen/textSize16</item>
   </style>
 
   <!-- Bold -->
+  <style name="Text.Roboto.Bold.18sp">
+    <item name="android:textSize">@dimen/textSize18</item>
+  </style>
+
   <style name="Text.Roboto.Bold.20sp">
     <item name="android:textSize">@dimen/textSize20</item>
+  </style>
+
+  <!-- Italic -->
+  <style name="Text.Roboto.Italic.18sp">
+    <item name="android:textSize">@dimen/textSize18</item>
   </style>
 
 </resources>

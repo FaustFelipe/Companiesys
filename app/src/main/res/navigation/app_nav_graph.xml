@@ -52,6 +52,24 @@
       app:popUpTo="@id/app_nav_graph"
       app:popUpToInclusive="true"/>
 
+    <action
+      android:id="@+id/action_homeFragment_to_detailsFragment"
+      app:destination="@id/detailsFragment" />
+
+  </fragment>
+
+  <fragment
+    android:id="@+id/detailsFragment"
+    android:name="br.com.faustfelipe.android.companiesys.presentation.details.DetailsFragment"
+    android:label="DetailsFragment"
+    tools:layout="@layout/fragment_details">
+
+    <action
+      android:id="@+id/action_detailsFragment_to_signInFragment"
+      app:destination="@id/signInFragment"
+      app:popUpTo="@id/app_nav_graph"
+      app:popUpToInclusive="true"/>
+
   </fragment>
 
 </navigation>

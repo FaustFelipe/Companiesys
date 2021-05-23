@@ -3,6 +3,7 @@ package br.com.faustfelipe.android.data.api.datasource
 import br.com.faustfelipe.android.data.api.CompaniesysAPI
 import br.com.faustfelipe.android.data.api.models.response.SignInResponse
 import br.com.faustfelipe.android.data.api.models.UserPayload
+import br.com.faustfelipe.android.data.api.models.response.EnterpriseSearchResponse
 import br.com.faustfelipe.android.data.api.models.response.EnterprisesSearchResponse
 import br.com.faustfelipe.android.data.api.models.response.ResponseWithHeaders
 import br.com.faustfelipe.android.data.api.utils.ApiException
@@ -37,6 +38,23 @@ class RemoteDataSourceImpl(
         client = client,
         uid = uid,
         queryName = queryName
+      )
+    }
+  }
+
+  override suspend fun getEnterprise(
+    accesstoken: String,
+    client: String,
+    uid: String,
+    id: String
+  ): EnterpriseSearchResponse {
+    return callService {
+      serverApi.getShowEnterprise(
+        contentType = "application/json",
+        accessToken = accesstoken,
+        client = client,
+        uid = uid,
+        id = id
       )
     }
   }
