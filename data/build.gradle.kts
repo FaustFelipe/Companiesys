@@ -49,5 +49,6 @@ dependencies {
   implementation(AppDependencies.SecurityCrypto.cryptoLibraries)
   testImplementation(AppDependencies.TestLibs.testLibraries)
   testImplementation(AppDependencies.TestLibs.testMockito)
+  testImplementation(AppDependencies.TestLibs.testCoroutines)
   testImplementation(AppDependencies.TestLibs.testMockWebServer)
 }

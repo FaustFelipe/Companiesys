@@ -83,11 +83,13 @@ class ComaniesysRepositoryImpl(
     sharedPreferences.edit().clear().apply()
   }
 
-  private fun saveCustomHeaders(headers: Headers) = with(sharedPreferences.edit()) {
-    putString(ENCRYPTED_PREFS_ACCESS_TOKEN_KEY, headers[CustomHeaders.ACCESS_TOKEN.key])
-    putString(ENCRYPTED_PREFS_CLIENT_KEY, headers[CustomHeaders.CLIENT.key])
-    putString(ENCRYPTED_PREFS_UID_KEY, headers[CustomHeaders.UID.key])
-    apply()
+  private fun saveCustomHeaders(headers: Headers) {
+    with(sharedPreferences.edit()) {
+      putString(ENCRYPTED_PREFS_ACCESS_TOKEN_KEY, headers[CustomHeaders.ACCESS_TOKEN.key])
+      putString(ENCRYPTED_PREFS_CLIENT_KEY, headers[CustomHeaders.CLIENT.key])
+      putString(ENCRYPTED_PREFS_UID_KEY, headers[CustomHeaders.UID.key])
+      apply()
+    }
   }
 
   private fun getHeader(key: String): String {
