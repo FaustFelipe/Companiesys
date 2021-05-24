@@ -12,7 +12,9 @@ class DetailsUseCase(
     return when(val result = repository.showEnterprise(id.toString())) {
       is Result.Success -> result
       is Result.Error -> {
-        repository.clearLocalData()
+        if (result.relogin) {
+          repository.clearLocalData()
+        }
         result
       }
     }

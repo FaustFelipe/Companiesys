@@ -55,9 +55,10 @@ object Versions {
   }
 
   object Test {
-    const val jUnit = "4.12"
-    const val extJunit = "1.1.2"
-    const val espressoCore = "3.3.0"
-    const val navigation = Navigation.version
+    const val androidArchTest = "2.0.0"
+    const val assertj = "3.11.1"
+    const val jUnit = "4.+"
+    const val mockitoKotlin = "2.0.0"
+    const val coroutineTest = "1.4.2"
   }
 }

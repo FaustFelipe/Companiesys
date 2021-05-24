@@ -127,18 +127,31 @@ object AppDependencies {
   }
 
   object TestLibs {
+    // Junit is used for basic resources of testing
     private val jUnit = "junit:junit:${Versions.Test.jUnit}"
-    private val extJunit = "androidx.test.ext:junit:${Versions.Test.extJunit}"
-    private val espressoCore = "androidx.test.espresso:espresso-core:${Versions.Test.espressoCore}"
-    private val navTest = "androidx.navigation:navigation-testing:${Versions.Test.navigation}"
+    // Simulate API requests
+    private val mockWebServer = "com.squareup.okhttp3:mockwebserver:${Versions.SquareUp.Okhttp3.okhttp}"
+    // Mocks interfaces and setting up behaviors
+    private val mockitoKotlin = "com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.Test.mockitoKotlin}"
+    // Clear and simple assertions
+    private val assertjCore = "org.assertj:assertj-core:${Versions.Test.assertj}"
+    // Changes background thread used by Architecture Components, in this example used by LiveData
+    private val androidArchTest = "androidx.arch.core:core-testing:${Versions.Test.androidArchTest}"
+    // Couroutines test
+    private val coroutineTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.Test.coroutineTest}"
 
     val testLibraries = arrayListOf<String>().apply {
       add(jUnit)
+      add(assertjCore)
     }
-    val androidTestLibraries = arrayListOf<String>().apply {
-      add(extJunit)
-      add(espressoCore)
-      add(navTest)
+    val testMockito = arrayListOf<String>().apply {
+      add(mockitoKotlin)
+    }
+    val testMockWebServer = arrayListOf<String>().apply {
+      add(mockWebServer)
+    }
+    val testCoroutines = arrayListOf<String>().apply {
+      add(coroutineTest)
     }
   }
 }

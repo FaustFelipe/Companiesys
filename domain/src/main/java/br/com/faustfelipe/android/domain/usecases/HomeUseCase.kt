@@ -12,7 +12,9 @@ class HomeUseCase(
     return when(val result = repository.searchEnterprise(queryName)) {
       is Result.Success -> result
       is Result.Error -> {
-        repository.clearLocalData()
+        if (result.relogin) {
+          repository.clearLocalData()
+        }
         result
       }
     }

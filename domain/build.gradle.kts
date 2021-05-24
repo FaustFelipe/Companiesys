@@ -11,4 +11,7 @@ java {
 dependencies {
   implementation(AppDependencies.Kotlin.kotlinLibraries)
   implementation(AppDependencies.Koin.koinLibraries)
+  testImplementation(AppDependencies.TestLibs.testLibraries)
+  testImplementation(AppDependencies.TestLibs.testMockito)
+  testImplementation(AppDependencies.TestLibs.testCoroutines)
 }

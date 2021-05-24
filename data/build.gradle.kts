@@ -48,5 +48,6 @@ dependencies {
   implementation(AppDependencies.SquareUp.Okhttp3.okhttpLibraries)
   implementation(AppDependencies.SecurityCrypto.cryptoLibraries)
   testImplementation(AppDependencies.TestLibs.testLibraries)
-  androidTestImplementation(AppDependencies.TestLibs.androidTestLibraries)
+  testImplementation(AppDependencies.TestLibs.testMockito)
+  testImplementation(AppDependencies.TestLibs.testMockWebServer)
 }
