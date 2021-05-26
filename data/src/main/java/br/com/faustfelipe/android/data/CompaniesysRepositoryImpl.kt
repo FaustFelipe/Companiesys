@@ -19,7 +19,7 @@ private const val ENCRYPTED_PREFS_ACCESS_TOKEN_KEY = "key_prefs_access_token"
 private const val ENCRYPTED_PREFS_CLIENT_KEY = "key_prefs_client"
 private const val ENCRYPTED_PREFS_UID_KEY = "key_prefs_uid"
 
-class ComaniesysRepositoryImpl(
+open class CompaniesysRepositoryImpl(
   private val context: Context,
   private val dataSource: RemoteDataSource
 ) : CompaniesysRepository {
