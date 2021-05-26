@@ -14,7 +14,7 @@
     <!-- Screen background color -->
     <item name="android:colorBackground">@color/white_rock</item>
 
-    <item name="android:textColorPrimary">@color/white</item>
+    <item name="android:textColorPrimary">@color/black_rock</item>
     <item name="colorControlNormal">@color/white</item>
   </style>
 </resources>
