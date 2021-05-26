@@ -20,7 +20,7 @@ object EnterpriseMapper {
     enterpriseName = enterprises.enterpriseName ?: "",
     description = enterprises.description ?: "",
     enterpriseType = enterprises.enterprisetype?.enterpriseTypeName ?: "",
-    photo = "${BuildConfig.API_BASE_URL}${enterprises.photo}" ?: "",
+    photo = "${BuildConfig.API_BASE_URL}${enterprises.photo ?: ""}" ?: "",
     country = enterprises.country ?: ""
   )
 }

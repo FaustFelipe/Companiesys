@@ -1,5 +1,7 @@
-package br.com.faustfelipe.android.domain.utils
+package br.com.faustfelipe.android.data.utils
 
+import br.com.faustfelipe.android.domain.utils.AppException
+import br.com.faustfelipe.android.domain.utils.Result
 import br.com.faustfelipe.android.domain.utils.Result.Error
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

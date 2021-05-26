@@ -11,7 +11,7 @@ import br.com.faustfelipe.android.domain.models.Enterprise
 import br.com.faustfelipe.android.domain.repository.CompaniesysRepository
 import br.com.faustfelipe.android.domain.utils.Result
 import br.com.faustfelipe.android.domain.utils.Result.Success
-import br.com.faustfelipe.android.domain.utils.safeIOCall
+import br.com.faustfelipe.android.data.utils.safeIOCall
 import okhttp3.Headers
 
 private const val ENCRYPTED_PREFS_FILE_NAME = "companiesys_prefs"
