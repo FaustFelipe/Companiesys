@@ -33,59 +33,10 @@ class DataSourceTests {
     val password = VALID_PASSWORD
     val userPayload = UserPayload(email, password)
 
-    val expected = ResponseWithHeaders<SignInResponse, Headers>(
-      SignInResponse(
-        investor = Investor(
-          id = null,
-          investorName = "name",
-          email = "email",
-          city = "city",
-          country = "country",
-          balance = null,
-          photo = "photo",
-          portfolio = null,
-          portfolioValue = null,
-          firstAccess = null,
-          superAngel = null
-        ),
-        enterprise = null,
-        success = true,
-        errors = null
-      ),
-      Headers.Builder()
-        .add("Content-Type", "application/json")
-        .add("access-token", VALID_ACCESS_TOKEN)
-        .add("client", VALID_CLIENT)
-        .add("uid", VALID_UID)
-        .build()
-    )
+    val expected = RESPONSE_WITH_HEADERS
 
     whenever(dataSource.postSignIn(any())).thenReturn(
-      ResponseWithHeaders(
-        SignInResponse(
-          investor = Investor(
-            id = null,
-            investorName = "name",
-            email = "email",
-            city = "city",
-            country = "country",
-            balance = null,
-            photo = "photo",
-            portfolio = null,
-            portfolioValue = null,
-            firstAccess = null,
-            superAngel = null
-          ),
-          enterprise = null,
-          success = true,
-          errors = null
-        ), Headers.Builder()
-          .add("Content-Type", "application/json")
-          .add("access-token", VALID_ACCESS_TOKEN)
-          .add("client", VALID_CLIENT)
-          .add("uid", VALID_UID)
-          .build()
-      )
+      RESPONSE_WITH_HEADERS.copy()
     )
 
     val result = dataSource.postSignIn(userPayload)
@@ -129,7 +80,7 @@ class DataSourceTests {
       val expected = ENTERPRISES_RESPONSE
 
       whenever(dataSource.getSearchEnterprise(any(), any(), any(), any())).thenReturn(
-        ENTERPRISES_RESPONSE
+        ENTERPRISES_RESPONSE.copy()
       )
 
       val result = dataSource.getSearchEnterprise(
@@ -153,7 +104,8 @@ class DataSourceTests {
   fun `should return an enterprise detail`() = runBlockingTest {
     val expected = ENTERPRISE_RESPONSE
 
-    whenever(dataSource.getEnterprise(any(), any(), any(), any())).thenReturn(ENTERPRISE_RESPONSE)
+    whenever(dataSource.getEnterprise(any(), any(), any(), any()))
+      .thenReturn(ENTERPRISE_RESPONSE.copy())
 
     val result = dataSource.getEnterprise(
       VALID_ACCESS_TOKEN,
@@ -217,6 +169,32 @@ class DataSourceTests {
         enterprisetype = null,
         sharePrice = null
       )
+    )
+    private val RESPONSE_WITH_HEADERS = ResponseWithHeaders<SignInResponse, Headers>(
+      SignInResponse(
+        investor = Investor(
+          id = null,
+          investorName = "name",
+          email = "email",
+          city = "city",
+          country = "country",
+          balance = null,
+          photo = "photo",
+          portfolio = null,
+          portfolioValue = null,
+          firstAccess = null,
+          superAngel = null
+        ),
+        enterprise = null,
+        success = true,
+        errors = null
+      ),
+      Headers.Builder()
+        .add("Content-Type", "application/json")
+        .add("access-token", VALID_ACCESS_TOKEN)
+        .add("client", VALID_CLIENT)
+        .add("uid", VALID_UID)
+        .build()
     )
   }
 }
