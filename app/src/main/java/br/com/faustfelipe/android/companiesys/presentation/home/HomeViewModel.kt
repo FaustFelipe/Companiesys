@@ -22,7 +22,7 @@ class HomeViewModel(
   val searchTerm: LiveData<String> = _searchTerm
 
   fun isEmptyList(): Boolean {
-    return _enterpriseData.value?.isNullOrEmpty() ?: true
+    return homeUseCase.getListOfEnterprises().isEmpty()
   }
 
   fun searchEnterprise(queryName: String) {

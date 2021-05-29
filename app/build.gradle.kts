@@ -52,4 +52,7 @@ dependencies {
   implementation(AppDependencies.Bumptech.glideImplLibraries)
   kapt(AppDependencies.Bumptech.glideCompLibraries)
   testImplementation(AppDependencies.TestLibs.testLibraries)
+  testImplementation(AppDependencies.TestLibs.testMockito)
+  testImplementation(AppDependencies.TestLibs.testAndroidArch)
+  testImplementation(AppDependencies.TestLibs.testCoroutines)
 }

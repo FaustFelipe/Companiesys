@@ -8,9 +8,17 @@ class HomeUseCase(
   private val repository: CompaniesysRepository
 ) {
 
+  private val listOfEnterprises = mutableListOf<Enterprise>()
+
+  fun getListOfEnterprises(): List<Enterprise> = listOfEnterprises
+
   suspend fun searchEnterprise(queryName: String): Result<List<Enterprise>> {
     return when(val result = repository.searchEnterprise(queryName)) {
-      is Result.Success -> result
+      is Result.Success -> {
+        listOfEnterprises.clear()
+        listOfEnterprises.addAll(result.data)
+        result
+      }
       is Result.Error -> {
         if (result.relogin) {
           repository.clearLocalData()

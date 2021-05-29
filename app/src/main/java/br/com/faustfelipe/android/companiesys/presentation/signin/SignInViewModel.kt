@@ -4,9 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import br.com.faustfelipe.android.companiesys.common.BaseViewModel
-import br.com.faustfelipe.android.domain.utils.Result
 import br.com.faustfelipe.android.domain.usecases.SignInUseCase
-import br.com.faustfelipe.android.domain.utils.ValidatorUtils
+import br.com.faustfelipe.android.domain.utils.Result
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -35,21 +34,17 @@ class SignInViewModel(
   fun signIn(email: String, password: String) {
     clearInvalidCredentialsMessage()
 
-    if (!ValidatorUtils.isValidEmail(email)) {
-      _emailError.postValue(true)
-    } else {
-      viewModelScope.launch(Dispatchers.IO) {
-        _loading.postValue(true)
-        when(val response = signInUseCase.signIn(email, password)) {
-          is Result.Success -> _navigateToFeed.postValue(Unit)
-          is Result.Error -> {
-            _emailError.postValue(true)
-            _passwordError.postValue(true)
-            _invalidCredentials.postValue(true)
-          }
-        }
-        _loading.postValue(false)
+    _loading.postValue(true)
+    viewModelScope.launch(Dispatchers.IO) {
+      val response = signInUseCase.signIn(email, password)
+      if (response is Result.Success) {
+        _navigateToFeed.postValue(Unit)
+      } else {
+        _emailError.postValue(true)
+        _passwordError.postValue(true)
+        _invalidCredentials.postValue(true)
       }
+      _loading.postValue(false)
     }
   }
 

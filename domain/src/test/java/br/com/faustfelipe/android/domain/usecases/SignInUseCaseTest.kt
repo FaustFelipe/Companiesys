@@ -21,11 +21,11 @@ class SignInUseCaseTest {
 
   private val repository = mock<CompaniesysRepository>()
 
-  private lateinit var useCase: SignInUseCase
+  private lateinit var useCase: SignInUseCaseImpl
 
   @Before
   fun `before each test`() {
-    useCase = SignInUseCase(repository)
+    useCase = SignInUseCaseImpl(repository)
   }
 
   @Test

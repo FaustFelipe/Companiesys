@@ -153,6 +153,9 @@ object AppDependencies {
     val testCoroutines = arrayListOf<String>().apply {
       add(coroutineTest)
     }
+    val testAndroidArch = arrayListOf<String>().apply {
+      add(androidArchTest)
+    }
   }
 }
 
