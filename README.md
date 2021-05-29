@@ -8,7 +8,7 @@ A project that aims to list companies based on an API
 - Retrofit
 - Modularização
 - Kotlin DSL
-- Testes unitários (até onde conseguir chegar até este commit)
+- Testes unitários
 - Material Design
 - Lifecycle
 - Coroutines
