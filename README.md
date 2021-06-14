@@ -14,3 +14,6 @@ A project that aims to list companies based on an API
 - Coroutines
 - Glide
 - SecurityCrypto
+- Testes Unitários
+- Testes automatizados (em breve)
+- DataBinding (em breve)
