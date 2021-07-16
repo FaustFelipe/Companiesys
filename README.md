@@ -15,5 +15,5 @@ A project that aims to list companies based on an API
 - Glide
 - SecurityCrypto
 - Testes Unitários
-- Testes automatizados (em breve)
+- Testes instrumentados (em breve)
 - DataBinding (em breve)
